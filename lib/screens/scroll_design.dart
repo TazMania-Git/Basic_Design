@@ -4,9 +4,49 @@ class ScrollScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Stack(
-      children: [Background(), MainContent()],
+        body: PageView(
+      scrollDirection: Axis.vertical,
+      children: [
+        Page1(),
+        Page2(),
+      ],
     ));
+  }
+}
+
+class Page1 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [Background(), MainContent()],
+    );
+  }
+}
+
+class Page2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color:Color(0xff51c1dc) ,
+      child: Center(
+        child: TextButton(
+          style: TextButton.styleFrom(
+            backgroundColor: Colors.blue,
+            shape: StadiumBorder(),
+          ),
+            onPressed: () {},
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Text(
+                "Bienvenido",
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.white
+                ),
+              ),
+            )),
+      ),
+    );
   }
 }
 
@@ -29,7 +69,11 @@ class MainContent extends StatelessWidget {
             style: textStyle,
           ),
           Expanded(child: Container()),
-          Icon(Icons.keyboard_arrow_down,size: 100,color: Colors.white,)
+          Icon(
+            Icons.keyboard_arrow_down,
+            size: 100,
+            color: Colors.white,
+          )
         ],
       ),
     );
