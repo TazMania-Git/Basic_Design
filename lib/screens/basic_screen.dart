@@ -32,6 +32,7 @@ class ButtonSelection extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
+        // ignore: prefer_const_literals_to_create_immutables
         children: [
           CustomButton(
             icon: Icons.call,
@@ -86,6 +87,7 @@ class Title extends StatelessWidget {
         children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            // ignore: prefer_const_literals_to_create_immutables
             children: [
               Text(
                 "Playa del Carmen",
