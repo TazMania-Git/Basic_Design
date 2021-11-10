@@ -71,6 +71,41 @@ class _SingleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return CardBackground(
+        column: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        CircleAvatar(
+          child: Icon(icon, size: 35),
+          backgroundColor: color,
+          radius: 30,
+          foregroundColor: Colors.white,
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Text(
+          text,
+          style: TextStyle(
+            color: Colors.blue,
+            fontSize: 18,
+          ),
+        )
+      ],
+    ));
+  }
+}
+
+class CardBackground extends StatelessWidget {
+  const CardBackground({
+    Key? key,
+    required this.column,
+  }) : super(key: key);
+
+  final Column column;
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(15),
       child: ClipRRect(
@@ -83,27 +118,7 @@ class _SingleCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
               color: Color.fromRGBO(62, 66, 107, 0.7),
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CircleAvatar(
-                  child: Icon(icon, size: 35),
-                  backgroundColor: color,
-                  radius: 30,
-                  foregroundColor: Colors.white,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  text,
-                  style: TextStyle(
-                    color: Colors.blue,
-                    fontSize: 18,
-                  ),
-                )
-              ],
-            ),
+            child: column,
           ),
         ),
       ),
