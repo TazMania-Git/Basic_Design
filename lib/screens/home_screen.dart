@@ -1,4 +1,5 @@
 import 'package:designs_practice/widgets/background.dart';
+import 'package:designs_practice/widgets/card_table.dart';
 import 'package:designs_practice/widgets/custom_bottom_navigation.dart';
 import 'package:designs_practice/widgets/page_title.dart';
 import 'package:flutter/material.dart';
@@ -21,8 +22,10 @@ class _HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [PageTitle()],
+    return SingleChildScrollView(
+      child: Column(
+        children: [PageTitle(),CardTable()],
+      ),
     );
   }
 }
