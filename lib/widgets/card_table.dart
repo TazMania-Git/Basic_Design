@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,7 @@ class CardTable extends StatelessWidget {
             text: "Shopping",
           ),
         ]),
-                  TableRow(children: [
+        TableRow(children: [
           _SingleCard(
             icon: Icons.pie_chart_sharp,
             color: Colors.blue,
@@ -31,7 +32,7 @@ class CardTable extends StatelessWidget {
             text: "Shopping",
           ),
         ]),
-                  TableRow(children: [
+        TableRow(children: [
           _SingleCard(
             icon: Icons.pie_chart_sharp,
             color: Colors.blue,
@@ -42,7 +43,8 @@ class CardTable extends StatelessWidget {
             color: Colors.purple,
             text: "Shopping",
           ),
-        ]),          TableRow(children: [
+        ]),
+        TableRow(children: [
           _SingleCard(
             icon: Icons.pie_chart_sharp,
             color: Colors.blue,
@@ -54,7 +56,6 @@ class CardTable extends StatelessWidget {
             text: "Shopping",
           ),
         ])
-
       ],
     );
   }
@@ -72,27 +73,39 @@ class _SingleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(15),
-      height: 180,
-      decoration: BoxDecoration(
+      child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
-        color: Color.fromRGBO(62, 66, 107, 0.7),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          CircleAvatar(
-            child: Icon(icon, size: 35),
-            backgroundColor: color,
-            radius: 30,
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+          child: Container(
+            height: 180,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Color.fromRGBO(62, 66, 107, 0.7),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                  child: Icon(icon, size: 35),
+                  backgroundColor: color,
+                  radius: 30,
+                  foregroundColor: Colors.white,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  text,
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 18,
+                  ),
+                )
+              ],
+            ),
           ),
-          SizedBox(
-            height: 20,
-          ),
-          Text(
-            text,
-            style: TextStyle(color: Colors.blue, fontSize: 18),
-          )
-        ],
+        ),
       ),
     );
   }
